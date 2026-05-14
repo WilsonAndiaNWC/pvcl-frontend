@@ -1,0 +1,164 @@
+<div class="min-h-screen flex bg-gray-50 font-sans">
+  <app-sidebar></app-sidebar>
+
+  <main class="flex-1 p-8 overflow-y-auto flex justify-center items-start">
+    <div class="w-full max-w-5xl">
+
+      <header class="flex justify-between items-center mb-8">
+        <div>
+          <div class="flex items-center text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">
+            <span>Middleware B-SISA</span>
+            <svg class="w-3 h-3 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+            <span class="text-primary">Integración ANH</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-gray-800">Sincronización de Catálogos</h2>
+
+        </div>
+
+        <div class="flex flex-col items-end">
+          <button
+            class="bg-primary text-white px-6 py-3 rounded-xl font-black shadow-lg hover:brightness-110 active:scale-[0.99] transition uppercase tracking-wide text-sm flex items-center mb-2">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+              </path>
+            </svg>
+            Forzar Sincronización
+          </button>
+          <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Cron Job: Activo (Cada 24h)</p>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-3 gap-6 mb-8">
+        <div
+          class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center border-l-4 border-l-success">
+          <div class="w-12 h-12 rounded-full bg-success/10 text-success flex items-center justify-center mr-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase font-black text-gray-400 tracking-widest">Estado Global</p>
+            <p class="text-xl font-black text-gray-800">Sincronizado</p>
+          </div>
+        </div>
+
+        <div
+          class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center border-l-4 border-l-primary">
+          <div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase font-black text-gray-400 tracking-widest">Última Actualización</p>
+            <p class="text-lg font-black text-gray-800 font-mono">14/05/2026 05:00</p>
+          </div>
+        </div>
+
+        <div
+          class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center border-l-4 border-l-inverse">
+          <div
+            class="w-12 h-12 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center mr-4 font-black">
+            18
+          </div>
+          <div>
+            <p class="text-[10px] uppercase font-black text-gray-400 tracking-widest">Total Catálogos</p>
+            <p class="text-xl font-black text-gray-800">Recibidos</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+          <h3 class="text-lg font-bold text-gray-800">Detalle de Diccionarios y Clasificadores</h3>
+          <span
+            class="text-[10px] font-bold text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-100 uppercase tracking-widest">Respuesta
+            ANH</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="text-gray-400 text-xs uppercase tracking-widest border-b border-gray-100">
+                <th class="py-4 px-6 font-black w-16 text-center">N°</th>
+                <th class="py-4 px-6 font-black">Nombre del Catálogo (Objeto)</th>
+                <th class="py-4 px-6 font-black">Registros</th>
+                <th class="py-4 px-6 font-black">Estado de Sincronización</th>
+                <th class="py-4 px-6 font-black text-right">Última Fecha</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm divide-y divide-gray-50">
+
+              <tr class="hover:bg-gray-50 transition">
+                <td class="py-4 px-6 text-center font-bold text-gray-400">3</td>
+                <td class="py-4 px-6 font-bold text-gray-800 font-mono">CatalogoResultados</td>
+                <td class="py-4 px-6"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-1 rounded text-xs">24
+                    items</span></td>
+                <td class="py-4 px-6"><span class="text-success font-bold flex items-center"><span
+                      class="w-2 h-2 bg-success rounded-full mr-2"></span>Actualizado</span></td>
+                <td class="py-4 px-6 text-right font-mono text-gray-500">Hoy, 05:00 AM</td>
+              </tr>
+
+              <tr class="hover:bg-gray-50 transition">
+                <td class="py-4 px-6 text-center font-bold text-gray-400">8</td>
+                <td class="py-4 px-6 font-bold text-gray-800 font-mono">CatalogoProductos</td>
+                <td class="py-4 px-6"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-1 rounded text-xs">8
+                    items</span></td>
+                <td class="py-4 px-6"><span class="text-success font-bold flex items-center"><span
+                      class="w-2 h-2 bg-success rounded-full mr-2"></span>Actualizado</span></td>
+                <td class="py-4 px-6 text-right font-mono text-gray-500">Hoy, 05:00 AM</td>
+              </tr>
+
+              <tr class="hover:bg-gray-50 transition">
+                <td class="py-4 px-6 text-center font-bold text-gray-400">9</td>
+                <td class="py-4 px-6 font-bold text-gray-800 font-mono">CatalogoTiposConsumidor</td>
+                <td class="py-4 px-6"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-1 rounded text-xs">6
+                    items</span></td>
+                <td class="py-4 px-6"><span class="text-success font-bold flex items-center"><span
+                      class="w-2 h-2 bg-success rounded-full mr-2"></span>Actualizado</span></td>
+                <td class="py-4 px-6 text-right font-mono text-gray-500">Hoy, 05:00 AM</td>
+              </tr>
+
+              <tr class="hover:bg-gray-50 transition">
+                <td class="py-4 px-6 text-center font-bold text-gray-400">14</td>
+                <td class="py-4 px-6 font-bold text-gray-800 font-mono">CatalogoTiposFactura</td>
+                <td class="py-4 px-6"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-1 rounded text-xs">3
+                    items</span></td>
+                <td class="py-4 px-6"><span class="text-success font-bold flex items-center"><span
+                      class="w-2 h-2 bg-success rounded-full mr-2"></span>Actualizado</span></td>
+                <td class="py-4 px-6 text-right font-mono text-gray-500">Hoy, 05:00 AM</td>
+              </tr>
+
+              <tr class="hover:bg-gray-50 transition">
+                <td class="py-4 px-6 text-center font-bold text-gray-400">15</td>
+                <td class="py-4 px-6 font-bold text-gray-800 font-mono">CatalogoTiposDocumento</td>
+                <td class="py-4 px-6"><span class="bg-gray-100 text-gray-600 font-bold px-2 py-1 rounded text-xs">5
+                    items</span></td>
+                <td class="py-4 px-6"><span class="text-success font-bold flex items-center"><span
+                      class="w-2 h-2 bg-success rounded-full mr-2"></span>Actualizado</span></td>
+                <td class="py-4 px-6 text-right font-mono text-gray-500">Hoy, 05:00 AM</td>
+              </tr>
+
+              <tr class="hover:bg-gray-50 transition bg-orange-50/30">
+                <td class="py-4 px-6 text-center font-bold text-gray-400">20</td>
+                <td class="py-4 px-6 font-bold text-gray-800 font-mono">CatalogoTiposControl</td>
+                <td class="py-4 px-6"><span class="bg-gray-100 text-gray-400 font-bold px-2 py-1 rounded text-xs">0
+                    items</span></td>
+                <td class="py-4 px-6"><span class="text-warning font-bold flex items-center"><span
+                      class="w-2 h-2 bg-warning rounded-full mr-2 animate-pulse"></span>Pendiente (Reintento...)</span>
+                </td>
+                <td class="py-4 px-6 text-right font-mono text-gray-500">Ayer, 05:00 AM</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

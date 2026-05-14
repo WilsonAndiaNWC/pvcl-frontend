@@ -1,0 +1,68 @@
+<div class="min-h-screen flex bg-gray-50 font-sans">
+  <app-sidebar></app-sidebar>
+
+  <main class="flex-1 p-8 flex justify-center items-start overflow-y-auto">
+    <div class="w-full max-w-4xl">
+
+      <header class="flex justify-between items-center mb-8">
+        <div>
+          <div class="flex items-center text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">
+            <span>Parametría</span>
+            <svg class="w-3 h-3 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+            <span class="text-primary">Productos</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-gray-800">Catálogo de Combustibles</h2>
+        </div>
+        <button
+          class="bg-primary text-white px-5 py-2.5 rounded-xl font-bold shadow-md hover:bg-opacity-90 transition flex items-center text-sm">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+          </svg>
+          Añadir Producto
+        </button>
+      </header>
+
+      <div class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-gray-50 text-gray-500 text-[10px] uppercase tracking-widest border-b border-gray-100">
+              <th class="py-5 px-8 font-black">ID / Código</th>
+              <th class="py-5 px-8 font-black">Nombre del Combustible</th>
+              <th class="py-5 px-8 font-black text-right">Precio Actual (Bs)</th>
+              <th class="py-5 px-8 font-black text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-50">
+            <tr class="group hover:bg-gray-50/50 transition">
+              <td class="py-5 px-8 font-mono text-xs text-gray-400">#001 / GAS-ESP</td>
+              <td class="py-5 px-8">
+                <div class="flex items-center">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-black text-xs mr-3">
+                    GE</div>
+                  <span class="font-bold text-gray-800">Gasolina Especial</span>
+                </div>
+              </td>
+              <td class="py-5 px-8 text-right">
+                <input type="number"
+                  class="w-24 bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 font-black text-primary text-right outline-none focus:border-primary"
+                  value="3.74">
+              </td>
+              <td class="py-5 px-8 text-center">
+                <button class="text-gray-400 hover:text-danger transition"><svg class="w-5 h-5 mx-auto" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                    </path>
+                  </svg></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+</div>

@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary: #0f5a76;
+  --brand-secondary: #0057a3;
+  --brand-info: #00acc1;
+  --brand-success: #28a745;
+  --brand-warning: #fb8c00;
+  --brand-danger: #e53935;
+  --brand-rose: #d81b60;
+  --brand-inverse: #3c4858;
+}
+
+body {
+  @apply bg-gray-50 text-inverse font-sans;
+}

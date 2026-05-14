@@ -1,0 +1,217 @@
+<div class="min-h-screen flex bg-gray-50 font-sans">
+
+  <app-sidebar></app-sidebar>
+
+  <main class="flex-1 p-8 overflow-y-auto">
+    <header class="flex justify-between items-center mb-8">
+      <div>
+        <h2 class="text-3xl font-extrabold text-gray-800">Tanques</h2>
+        <p class="text-gray-500 mt-1 font-medium">Selecciona un tanque para ver su auditoría específica</p>
+      </div>
+      <div class="flex space-x-3">
+        <button class="bg-primary text-white px-5 py-2.5 rounded-xl font-bold shadow-md hover:bg-opacity-90 transition">
+          Ajuste Manual
+        </button>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
+
+      <div (click)="selectTank('T-01')"
+        class="bg-white p-6 rounded-2xl border-2 flex flex-col items-center relative overflow-hidden cursor-pointer transition-all duration-300"
+        [ngClass]="selectedTank === 'T-01' ? 'border-primary ring-4 ring-primary/20 shadow-xl scale-105 z-10' : 'border-gray-200 shadow-sm hover:border-primary/50 opacity-70 hover:opacity-100'">
+
+        <div
+          class="absolute top-4 right-4 bg-success/10 text-success text-xs font-black px-2 py-1 rounded-md uppercase tracking-wider">
+          Óptimo
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-1">Tanque 1 (T-01)</h3>
+        <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-6">Gasolina Especial</p>
+
+        <div
+          class="relative w-32 h-64 bg-gray-100 rounded-t-3xl rounded-b-xl border-4 border-gray-200 overflow-hidden flex items-end mb-6 shadow-inner">
+          <div class="w-full bg-primary transition-all duration-1000 ease-in-out relative" style="height: 75%;">
+            <div class="absolute top-0 left-0 w-full h-2 bg-white/20"></div>
+          </div>
+        </div>
+
+        <div class="w-full grid grid-cols-3 gap-4 text-center">
+          <div class="bg-gray-50 rounded-lg p-2 border border-gray-100">
+            <p class="text-[10px] text-gray-500 font-bold uppercase">Volumen Actual</p>
+            <p class="text-lg font-black text-gray-800">15,000 L</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-2 border border-gray-100">
+            <p class="text-[10px] text-gray-500 font-bold uppercase">Agua en Fondo</p>
+            <p class="text-lg font-black text-warning">2.0 L</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-2 border border-gray-100">
+            <p class="text-[10px] text-gray-500 font-bold uppercase">Temperatura</p>
+            <p class="text-lg font-black text-gray-800">22.5 °C</p>
+          </div>
+        </div>
+      </div>
+
+      <div (click)="selectTank('T-02')"
+        class="bg-white p-6 rounded-2xl border-2 flex flex-col items-center relative overflow-hidden cursor-pointer transition-all duration-300 border-b-8"
+        [ngClass]="selectedTank === 'T-02' ? 'border-primary ring-4 ring-primary/20 shadow-xl scale-105 z-10 border-b-danger' : 'border-gray-200 border-b-danger shadow-sm hover:border-primary/50 opacity-70 hover:opacity-100'">
+
+        <div
+          class="absolute top-4 right-4 bg-danger/10 text-danger text-xs font-black px-2 py-1 rounded-md uppercase tracking-wider animate-pulse">
+          Crítico
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-1">Tanque 2 (T-02)</h3>
+        <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-6">Diésel Oil</p>
+
+        <div
+          class="relative w-32 h-64 bg-gray-100 rounded-t-3xl rounded-b-xl border-4 border-gray-200 overflow-hidden flex items-end mb-6 shadow-inner">
+          <div class="w-full bg-danger transition-all duration-1000 ease-in-out relative" style="height: 15%;">
+            <div class="absolute top-0 left-0 w-full h-2 bg-white/20"></div>
+          </div>
+        </div>
+
+        <div class="w-full grid grid-cols-3 gap-4 text-center">
+          <div class="bg-red-50 rounded-lg p-2 border border-red-100">
+            <p class="text-[10px] text-danger font-bold uppercase">Volumen Actual</p>
+            <p class="text-lg font-black text-danger">3,000 L</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-2 border border-gray-100">
+            <p class="text-[10px] text-gray-500 font-bold uppercase">Agua en Fondo</p>
+            <p class="text-lg font-black text-warning">2.0 L</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-2 border border-gray-100">
+            <p class="text-[10px] text-gray-500 font-bold uppercase">Temperatura</p>
+            <p class="text-lg font-black text-gray-800">22.5 °C</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-inverse p-6 rounded-2xl shadow-lg flex flex-col justify-between text-white transition-all duration-300">
+        <div>
+          <h3 class="text-lg font-bold mb-1">Control de Gota</h3>
+          <p class="text-xs text-primary font-bold uppercase tracking-widest mb-6">
+            Análisis de {{ selectedTank === 'T-01' ? 'Gasolina Especial' : 'Diésel Oil' }}
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+              <span class="text-sm font-medium text-gray-300">Ventas Teóricas (Hoy)</span>
+              <span class="text-lg font-bold">{{ selectedTank === 'T-01' ? '4,500 L' : '1,200 L' }}</span>
+            </div>
+            <div class="flex justify-between items-center border-b border-gray-700 pb-2">
+              <span class="text-sm font-medium text-gray-300">Revisión Manual</span>
+              <span class="text-lg font-bold">{{ selectedTank === 'T-01' ? '4,505 L' : '1,200 L' }}</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm font-medium text-gray-300">Diferencia (Merma)</span>
+              <span class="text-lg font-black" [ngClass]="selectedTank === 'T-01' ? 'text-warning' : 'text-success'">
+                {{ selectedTank === 'T-01' ? '-5.0 L' : '0.0 L' }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 bg-white/10 p-4 rounded-xl border border-white/20">
+          <p class="text-xs text-gray-300 font-medium leading-relaxed">
+            <span *ngIf="selectedTank === 'T-01'">Variación dentro del rango tolerado (0.11%). No se requieren ajustes
+              manuales.</span>
+            <span *ngIf="selectedTank === 'T-02'">Equilibrio perfecto. Cero variación detectada.</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div
+      class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col transition-all duration-300">
+      <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+        <h3 class="text-lg font-bold text-gray-800">Últimos Movimientos: <span class="text-primary">{{ selectedTank
+            }}</span></h3>
+        <span class="text-xs font-bold text-primary bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Tabla:
+          movimientos_inventario</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-gray-50 text-gray-500 text-xs uppercase tracking-wide border-b border-gray-100">
+              <th class="py-4 px-6 font-bold">Fecha / Hora</th>
+              <th class="py-4 px-6 font-bold">Tanque</th>
+              <th class="py-4 px-6 font-bold">Tipo</th>
+              <th class="py-4 px-6 font-bold text-right text-success">Entrada (L)</th>
+              <th class="py-4 px-6 font-bold text-right text-danger">Salida (L)</th>
+              <th class="py-4 px-6 font-bold text-right text-inverse">Saldo (L)</th>
+              <th class="py-4 px-6 font-bold">Observación</th>
+            </tr>
+          </thead>
+
+          <tbody *ngIf="selectedTank === 'T-01'" class="text-sm animate-fade-in">
+            <tr class="hover:bg-gray-50 transition">
+              <td class="py-4 px-6 text-gray-500 font-mono">12 May 2026 23:55</td>
+              <td class="py-4 px-6 font-bold text-gray-800">T-01 (Gasolina)</td>
+              <td class="py-4 px-6"><span
+                  class="bg-orange-50 text-warning font-bold px-2 py-1 rounded text-xs">Merma</span>
+              </td>
+              <td class="py-4 px-6 text-right font-mono text-gray-300">-</td>
+              <td class="py-4 px-6 text-right font-mono font-bold text-warning">- 50.00</td>
+              <td class="py-4 px-6 text-right font-mono font-black text-gray-800">15,100.00</td>
+              <td class="py-4 px-6 text-gray-500 truncate max-w-xs">Reducción control de gota fin de turno</td>
+            </tr>
+            <tr class="border-b border-gray-50 hover:bg-gray-50 transition">
+              <td class="py-4 px-6 text-gray-500 font-mono">13 May 2026 10:15</td>
+              <td class="py-4 px-6 font-bold text-gray-800">T-01 (Gasolina)</td>
+              <td class="py-4 px-6"><span
+                  class="bg-gray-100 text-gray-700 font-bold px-2 py-1 rounded text-xs">VENTA</span>
+              </td>
+              <td class="py-4 px-6 text-right font-mono text-gray-300">-</td>
+              <td class="py-4 px-6 text-right font-mono font-bold text-danger"> - 100.00</td>
+              <td class="py-4 px-6 text-right font-mono font-black text-gray-800">15,000.00</td>
+              <td class="py-4 px-6 text-gray-500 truncate max-w-xs">Despacho M - 1</td>
+            </tr>
+
+          </tbody>
+
+          <tbody *ngIf="selectedTank === 'T-02'" class="text-sm animate-fade-in">
+            <tr class="hover:bg-gray-50 transition">
+              <td class="py-4 px-6 text-gray-500 font-mono">13 May 2026 06:00</td>
+              <td class="py-4 px-6 font-bold text-gray-800">T-02 (Diésel)</td>
+              <td class="py-4 px-6"><span
+                  class="bg-blue-50 text-primary font-bold px-2 py-1 rounded text-xs">RECEPCIÓN</span>
+              </td>
+              <td class="py-4 px-6 text-right font-mono font-bold text-success"> + 5,000.00</td>
+              <td class="py-4 px-6 text-right font-mono text-gray-300">-</td>
+              <td class="py-4 px-6 text-right font-mono font-black text-gray-800">5,000.00</td>
+              <td class="py-4 px-6 text-gray-500 truncate max-w-xs">Cisterna Placa 1234XYZ</td>
+            </tr>
+            <tr class="border-b border-gray-50 hover:bg-gray-50 transition">
+              <td class="py-4 px-6 text-gray-500 font-mono">13 May 2026 08:30</td>
+              <td class="py-4 px-6 font-bold text-gray-800">T-02 (Diésel)</td>
+              <td class="py-4 px-6"><span
+                  class="bg-gray-100 text-gray-700 font-bold px-2 py-1 rounded text-xs">VENTA</span>
+              </td>
+              <td class="py-4 px-6 text-right font-mono text-gray-300">-</td>
+              <td class="py-4 px-6 text-right font-mono font-bold text-danger"> - 2,000.00</td>
+              <td class="py-4 px-6 text-right font-mono font-black text-gray-800">3,000.00</td>
+              <td class="py-4 px-6 text-gray-500 truncate max-w-xs">Despacho M - 2</td>
+            </tr>
+
+            <tr class="border-b border-gray-50 hover:bg-gray-50 transition">
+              <td class="py-4 px-6 text-gray-500 font-mono">13 May 2026 13:30</td>
+              <td class="py-4 px-6 font-bold text-gray-800">T-02 (Diésel)</td>
+              <td class="py-4 px-6"><span
+                  class="bg-gray-100 text-gray-700 font-bold px-2 py-1 rounded text-xs">VENTA</span>
+              </td>
+              <td class="py-4 px-6 text-right font-mono text-gray-300">-</td>
+              <td class="py-4 px-6 text-right font-mono font-bold text-danger"> - 1,000.00</td>
+              <td class="py-4 px-6 text-right font-mono font-black text-gray-800">2,000.00</td>
+              <td class="py-4 px-6 text-gray-500 truncate max-w-xs">Despacho M - 2</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>

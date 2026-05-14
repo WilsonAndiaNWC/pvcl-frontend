@@ -1,0 +1,78 @@
+<div class="min-h-screen flex bg-gray-50 font-sans">
+  <app-sidebar></app-sidebar>
+
+  <main class="flex-1 p-8 overflow-y-auto flex justify-center items-start">
+
+    <div class="w-full max-w-3xl">
+
+      <header class="flex justify-between items-center mb-8">
+        <div>
+          <div class="flex items-center text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">
+            <span>Parametría</span>
+            <svg class="w-3 h-3 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+            <span class="text-primary">Datos Empresa</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-gray-800">Identidad de la Estación</h2>
+        </div>
+        <button
+          class="bg-primary text-white px-6 py-2.5 rounded-xl font-bold shadow-lg hover:brightness-110 active:scale-[0.99] transition uppercase tracking-wide text-sm flex items-center">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          Guardar Cambios
+        </button>
+      </header>
+
+      <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">
+          Información Fiscal (RAN 35/2024)
+        </h3>
+
+        <form class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="md:col-span-2">
+              <label class="block text-xs uppercase tracking-wide font-black text-gray-500 mb-2">Razón Social</label>
+              <input type="text"
+                class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-bold text-gray-800 focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20 outline-none transition"
+                value="COMBUSTIBLES DEL SUR S.R.L.">
+            </div>
+
+            <div>
+              <label class="block text-xs uppercase tracking-wide font-black text-gray-500 mb-2">NIT</label>
+              <input type="text"
+                class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-bold text-gray-800 focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20 outline-none transition"
+                value="1023456789">
+            </div>
+
+            <div>
+              <label class="block text-xs uppercase tracking-wide font-black text-gray-500 mb-2">Código ANH
+                (PVCL)</label>
+              <input type="text"
+                class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-bold text-primary focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20 outline-none transition"
+                value="PVCL-0056">
+            </div>
+
+            <div class="md:col-span-2 mt-4">
+              <h3 class="text-lg font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">
+                Ubicación Física
+              </h3>
+            </div>
+
+            <div class="md:col-span-2">
+              <label class="block text-xs uppercase tracking-wide font-black text-gray-500 mb-2">Dirección
+                Completa</label>
+              <input type="text"
+                class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-bold text-gray-800 focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20 outline-none transition"
+                value="Av. Petrolera Km 8, Zona Sur">
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+</div>

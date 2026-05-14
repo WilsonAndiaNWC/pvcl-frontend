@@ -1,0 +1,118 @@
+<aside class="w-64 bg-white border-r border-gray-200 flex flex-col h-screen sticky top-0 overflow-y-auto">
+
+  <div class="p-6 border-b border-gray-100 shrink-0 flex flex-col items-center text-center">
+    <img src="/image_anh.png" alt="Logo ANH"
+      class="h-16 w-auto mb-3 object-contain drop-shadow-sm transition-transform hover:scale-105">
+
+    <h1 class="text-xl font-black text-primary tracking-tight italic">PVCL</h1>
+    <p class="text-[10px] text-gray-400 mt-1 uppercase tracking-widest font-bold">Gestión RAN 35/2024</p>
+  </div>
+
+  <nav class="flex-1 px-4 py-6 space-y-2">
+
+    <a routerLink="/pos" routerLinkActive="bg-primary text-white shadow-md" [routerLinkActiveOptions]="{exact: true}"
+      class="flex items-center px-4 py-3 text-gray-600 hover:scale-105 rounded-xl transition font-bold group">
+      <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+        </path>
+      </svg>
+      Punto de Venta
+    </a>
+
+    <a routerLink="/inventory" routerLinkActive="bg-primary text-white shadow-md"
+      class="flex items-center px-4 py-3 text-gray-600 hover:scale-105 rounded-xl transition font-bold group">
+      <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+        </path>
+      </svg>
+      Inventario
+    </a>
+
+    <a routerLink="/catalogos" routerLinkActive="bg-primary text-white shadow-md"
+      class="flex items-center px-4 py-3 text-gray-600 hover:scale-105 rounded-xl transition font-bold group">
+      <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4">
+        </path>
+      </svg>
+      Catálogos ANH
+    </a>
+
+    <div class="space-y-1">
+      <div (click)="toggleSettings()"
+        class="flex items-center justify-between px-4 py-3 text-gray-800 rounded-xl font-bold bg-gray-50 border border-gray-100 cursor-pointer hover:border-primary/50 transition group">
+        <div class="flex items-center">
+          <svg class="w-5 h-5 mr-3 text-primary group-hover:scale-110 transition" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+            </path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
+            </path>
+          </svg>
+          Configuración
+        </div>
+        <svg [class.rotate-180]="isSettingsOpen" class="w-4 h-4 text-gray-400 transition-transform duration-300"
+          fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
+
+      <div [class.hidden]="!isSettingsOpen"
+        class="pl-12 pr-4 py-2 space-y-3 border-l-2 border-gray-100 ml-6 origin-top">
+        <a routerLink="/settings/empresa" routerLinkActive="text-primary font-black"
+          class="block text-sm font-bold text-gray-500 hover:text-primary hover:translate-x-1 transition-transform">Datos
+          Empresa</a>
+        <a routerLink="/settings/productos" routerLinkActive="text-primary font-black"
+          class="block text-sm font-bold text-gray-500 hover:text-primary hover:translate-x-1 transition-transform">Productos</a>
+        <a routerLink="/settings/infraestructura" routerLinkActive="text-primary font-black"
+          class="block text-sm font-bold text-gray-500 hover:text-primary hover:translate-x-1 transition-transform">Infraestructura</a>
+        <a routerLink="/settings/conexion" routerLinkActive="text-primary font-black"
+          class="block text-sm font-bold text-gray-500 hover:text-primary transition">Estado Conexión</a>
+      </div>
+    </div>
+
+    <div class="space-y-1 mt-2">
+      <div (click)="toggleSecurity()"
+        class="flex items-center justify-between px-4 py-3 text-gray-800 rounded-xl font-bold bg-gray-50 border border-gray-100 cursor-pointer hover:border-primary/50 transition group">
+        <div class="flex items-center">
+          <svg class="w-5 h-5 mr-3 text-primary group-hover:scale-110 transition" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+            </path>
+          </svg>
+          Seguridad
+        </div>
+        <svg [class.rotate-180]="isSecurityOpen" class="w-4 h-4 text-gray-400 transition-transform duration-300"
+          fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
+
+      <div [class.hidden]="!isSecurityOpen"
+        class="pl-12 pr-4 py-2 space-y-3 border-l-2 border-gray-100 ml-6 origin-top">
+        <a routerLink="/security/usuarios" routerLinkActive="text-primary font-black"
+          class="block text-sm font-bold text-gray-500 hover:text-primary hover:translate-x-1 transition-transform">Usuarios</a>
+        <a routerLink="/security/logs" routerLinkActive="text-primary font-black"
+          class="block text-sm font-bold text-gray-500 hover:text-primary hover:translate-x-1 transition-transform">Accesos
+          Logs</a>
+      </div>
+    </div>
+
+  </nav>
+
+  <div class="p-4 border-t border-gray-100 shrink-0">
+    <div class="bg-gray-50 rounded-xl p-3 flex items-center">
+      <div
+        class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs mr-3">
+        JP</div>
+      <div class="overflow-hidden">
+        <p class="text-xs font-black text-gray-800 truncate">Juan Perez</p>
+        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-tighter">Operador Islero</p>
+      </div>
+    </div>
+  </div>
+</aside>
