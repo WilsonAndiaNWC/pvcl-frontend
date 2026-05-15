@@ -38,7 +38,6 @@
         </h3>
 
         <div class="flex space-x-3 overflow-x-auto flex-1 items-center hide-scrollbar">
-
           <div
             class="min-w-[120px] h-full bg-white border border-success/30 rounded-xl overflow-hidden shadow-sm cursor-pointer hover:border-success transition ring-2 ring-transparent hover:ring-success/50 flex flex-col group">
             <div class="flex-1 bg-gray-200 relative overflow-hidden flex items-center justify-center">
@@ -50,11 +49,11 @@
               </svg>
             </div>
             <div class="bg-success text-white py-0.5">
-              <p class="text-[10px] font-black text-center tracking-widest">1234ABC</p>
+              <p class="text-[10px] font-black text-center tracking-widest">1414WFA</p>
             </div>
             <div class="p-1.5 text-[8px] text-gray-600 uppercase font-bold leading-tight bg-green-50/50">
-              <p>TOYOTA - BLANCO</p>
-              <p class="text-success">PARTICULAR</p>
+              <p>VOLVO - AZUL</p>
+              <p class="text-success">PESADO</p>
             </div>
           </div>
 
@@ -76,11 +75,10 @@
               <p class="text-primary">PÚBLICO</p>
             </div>
           </div>
-
         </div>
       </div>
 
-      <div class="h-[50vh] grid grid-cols-1 xl:grid-cols-2 gap-4 shrink-0">
+      <div class="h-[40vh] grid grid-cols-1 xl:grid-cols-2 gap-4 shrink-0">
 
         <div
           class="bg-white rounded-xl shadow-sm border-2 border-gray-200 flex flex-col overflow-hidden relative transition-all focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20">
@@ -99,14 +97,26 @@
             <div class="flex gap-3 w-full shrink-0">
 
               <div class="w-[77%]">
-                <div class="grid grid-cols-2 gap-2">
+                <div class="grid grid-cols-2 gap-2 relative">
 
                   <div>
                     <label class="block text-[9px] uppercase tracking-wide font-black text-gray-500 mb-0.5">Placa /
                       Tag</label>
-                    <input type="text"
-                      class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 font-black text-gray-900 focus:border-primary outline-none uppercase text-xs"
-                      placeholder="1234ABC">
+                    <div class="relative">
+                      <input type="text" (input)="buscarBsisaS1($event)"
+                        class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 font-black text-gray-900 focus:border-primary outline-none uppercase text-xs"
+                        placeholder="Ej: 1414 WFA">
+                      <div *ngIf="bsisaLoadingS1" class="absolute right-2 top-1.5">
+                        <svg class="animate-spin h-3.5 w-3.5 text-primary" xmlns="http://www.w3.org/2000/svg"
+                          fill="none" viewBox="0 0 24 24">
+                          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                          </circle>
+                          <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                          </path>
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                   <div>
                     <label class="block text-[9px] uppercase tracking-wide font-black text-gray-500 mb-0.5">Tipo
@@ -119,6 +129,24 @@
                     </select>
                   </div>
 
+                  <div *ngIf="bsisaDataS1"
+                    class="col-span-2 bg-green-50 border border-green-200 rounded-lg p-1.5 flex items-center justify-between mb-1 animate-fade-in shadow-inner">
+                    <div class="flex items-center">
+                      <svg class="w-4 h-4 text-success mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      <div>
+                        <p class="text-[8px] text-success font-black uppercase tracking-widest leading-none">B-SISA
+                          VIGENTE</p>
+                        <p class="text-[9px] font-bold text-gray-800 uppercase mt-0.5">{{ bsisaDataS1.propietario }}</p>
+                      </div>
+                    </div>
+                    <div class="text-right bg-white px-2 rounded shadow-sm border border-green-100">
+                      <p class="text-[7px] text-gray-500 font-bold uppercase tracking-wider">Cupo Autorizado</p>
+                      <p class="text-sm font-black text-success">{{ bsisaDataS1.cupo | number:'1.2-2' }} L</p>
+                    </div>
+                  </div>
                   <div>
                     <label
                       class="block text-[9px] uppercase tracking-wide font-black text-gray-500 mb-0.5">Documento*</label>
@@ -148,18 +176,6 @@
                       class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 font-bold text-gray-900 focus:border-primary outline-none text-xs">
                   </div>
 
-                  <div>
-                    <label
-                      class="block text-[9px] uppercase tracking-wide font-black text-gray-500 mb-0.5">Correo*</label>
-                    <input type="email"
-                      class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 font-bold text-gray-900 focus:border-primary outline-none text-xs">
-                  </div>
-                  <div>
-                    <label
-                      class="block text-[9px] uppercase tracking-wide font-black text-gray-500 mb-0.5">Autorización</label>
-                    <input type="text"
-                      class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 font-bold text-gray-900 focus:border-primary outline-none text-xs">
-                  </div>
                 </div>
               </div>
 
@@ -193,7 +209,7 @@
                 </div>
                 <div class="text-right">
                   <select
-                    class="w-24 bg-white border border-gray-200 rounded px-2 py-1 font-bold text-gray-700 outline-none text-[10px] shadow-sm">
+                    class="w-24 bg-white border border-gray-200 rounded px-2 py-1 font-bold text-gray-700 outline-none text-[10px] shadow-sm cursor-pointer">
                     <option value="efectivo" selected>Efectivo</option>
                     <option value="tarjeta">Tarjeta</option>
                   </select>
@@ -208,7 +224,7 @@
                     number:'1.2-2' }}</p>
                 </div>
                 <div class="text-right">
-                  <p class="text-[9px] uppercase font-black text-gray-500">Cantidad (L)</p>
+                  <p class="text-[9px] uppercase font-black text-gray-500">Autorizado (L)</p>
                   <input type="number"
                     class="w-24 bg-white border border-gray-300 rounded px-2 py-0.5 font-black text-lg text-primary text-right outline-none"
                     value="0.00">
@@ -297,19 +313,6 @@
                     <input type="text"
                       class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 font-bold text-gray-900 focus:border-primary outline-none text-xs">
                   </div>
-
-                  <div>
-                    <label
-                      class="block text-[9px] uppercase tracking-wide font-black text-gray-500 mb-0.5">Correo*</label>
-                    <input type="email"
-                      class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 font-bold text-gray-900 focus:border-primary outline-none text-xs">
-                  </div>
-                  <div>
-                    <label
-                      class="block text-[9px] uppercase tracking-wide font-black text-gray-500 mb-0.5">Autorización</label>
-                    <input type="text"
-                      class="w-full bg-gray-50 border border-gray-200 rounded px-2 py-1 font-bold text-gray-900 focus:border-primary outline-none text-xs">
-                  </div>
                 </div>
               </div>
 
@@ -317,14 +320,14 @@
                 <label
                   class="block text-[9px] uppercase tracking-wide font-black text-gray-500 mb-0.5 text-center">Captura</label>
                 <div
-                  class="w-full h-full bg-blue-50 rounded border-2 border-primary overflow-hidden flex flex-col items-center justify-center relative cursor-pointer">
-                  <svg class="w-8 h-8 text-primary opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  class="w-full h-full bg-blue-50 rounded border-2 border-primary overflow-hidden flex flex-col items-center justify-center relative cursor-pointer shadow-sm">
+                  <svg class="w-6 h-6 text-primary opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                       d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
                     </path>
                   </svg>
                   <div class="absolute bottom-0 w-full bg-primary text-white text-center"><span
-                      class="text-[7px] font-black uppercase">OK</span></div>
+                      class="text-[7px] font-black uppercase tracking-widest">OK</span></div>
                 </div>
               </div>
 
@@ -344,7 +347,7 @@
                 </div>
                 <div class="text-right">
                   <select
-                    class="w-24 bg-white border border-blue-200 rounded px-2 py-1 font-bold text-primary outline-none text-[10px] shadow-sm">
+                    class="w-24 bg-white border border-blue-200 rounded px-2 py-1 font-bold text-primary outline-none text-[10px] shadow-sm cursor-pointer">
                     <option value="efectivo" selected>Efectivo</option>
                     <option value="tarjeta">Tarjeta</option>
                   </select>
@@ -359,7 +362,7 @@
                     number:'1.2-2' }}</p>
                 </div>
                 <div class="text-right">
-                  <p class="text-[9px] uppercase font-black text-primary opacity-70">Cantidad (L)</p>
+                  <p class="text-[9px] uppercase font-black text-primary opacity-70">Autorizado (L)</p>
                   <input type="number"
                     class="w-24 bg-white border border-blue-200 rounded px-2 py-0.5 font-black text-lg text-primary text-right outline-none"
                     value="100.00">
